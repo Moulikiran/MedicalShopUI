@@ -1,0 +1,13 @@
+.row {
+    padding-top: 20px;
+}
+
+.shopDetails {
+    padding: 10px;
+}
+
+label {
+    font-size: medium bold;
+    color: black;
+    margin-left: -10px;
+}

@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row col-md-6 text-white bg-secondary" style="padding: 0px;">
+        <span>
+            <h3>Choose A Service</h3>
+        </span>
+    </div>
+    <div class="row border col-md-6">
+        <div style="padding-top: 6px;" class="col-md-6" *ngFor="let service of services">
+            <a class="btn btn-primary" href="/{{service.path}}">{{service.description}}</a>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

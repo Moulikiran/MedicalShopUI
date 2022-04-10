@@ -1,0 +1,102 @@
+<div *ngIf="errorMessage" id="hideDiv" class="alert alert-danger" role="alert">
+    Error in submit
+</div>
+
+<div *ngIf="successMessage" id="hideDiv" class="alert alert-success" role="alert">
+   Success
+</div>
+
+<div class="shopTitle row col-md-6 text-white bg-secondary" style="padding-top: 0px;">
+    <span>
+        <h3>Create Item</h3>
+    </span>
+</div>
+<div>
+    <div class="row col-md-3 itemDetails">
+        <label>Select Shop: <select [(ngModel)]="item.itemShopId" (change)="handleShopSelection()">
+                <option *ngFor="let shop of getAllShops" [value]="shop.shopid">
+                    {{shop.shopname}}, {{shop.shopaddress}}
+                </option>
+            </select></label>
+    </div>
+    <div *ngIf="showBillSection" class="row col-md-6 billDetails">
+        <label class="col-md-3">Bill Number: <input type="textbox" class="form-control"
+                [(ngModel)]="item.billNumber" /></label>
+        <label class="col-md-3">Bill Date: <input type="date" class="form-control" [(ngModel)]="item.billDate"
+                (change)="handleBillDateChangeEvent($event)" /></label>
+    </div>
+    <div style="padding-top: 10px;" *ngFor="let item of item.items">
+        <div class="row col-md-7">
+            <label style="border-bottom:1px solid">Item: {{item.itemname}} <button type="button" class="btn-close"
+                    aria-label="Close" style="float: right" (click)="removeItem(item)"></button> </label>
+        </div>
+        <div class="row col-md-9">
+            <div class="col-md-3">
+                <label>Item Name</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.itemname">
+            </div>
+            <div class="col-md-3">
+                <label>Item Quantity</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.itemquantity">
+            </div>
+            <div class="col-md-3">
+                <label>Item Power</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.itempowerinfo">
+            </div>
+        </div>
+        <div class="row col-md-9">
+            <div class="col-md-3">
+                <label>Item Mrp Price</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.itemmrp">
+            </div>
+            <div class="col-md-3">
+                <label>Item Base Rate</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.itempurchasedamount">
+            </div>
+            <div class="col-md-3">
+                <label>Item Batch Number</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.batchno">
+            </div>
+        </div>
+        <div class="row col-md-9">
+            <div class="col-md-3">
+                <label>Item Discount Percent(%)</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.itemdispercent">
+            </div>
+            <div class="col-md-3">
+                <label>Item CGST Percentage(%)</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.cgstpercent">
+            </div>
+            <div class="col-md-3">
+                <label>Item SGST Percentage(%)</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.sgstpercent">
+            </div>
+        </div>
+        <div class="row col-md-9">
+            <div class="col-md-3" *ngIf="showItemBillDate">
+                <label>Item Purchased Date</label>
+                <input class="form-control" type="date" [(ngModel)]="item.itempurchasedDate">
+            </div>
+            <div class="col-md-3">
+                <label>Item Manfactured Date</label>
+                <input class="form-control" type="date" [(ngModel)]="item.manfacturedDate">
+            </div>
+            <div class="col-md-3">
+                <label>Item Expired Date</label>
+                <input class="form-control" type="date" [(ngModel)]="item.expiredate">
+            </div>
+        </div>
+        <div class="row col-md-9">
+            <div class="col-md-3">
+                <label>Item Manfacturer Name</label>
+                <input class="form-control" type="textbox" [(ngModel)]="item.manfacturerName">
+            </div>
+        </div>
+    </div>
+    <div id="addButton" class="row" *ngIf="showAddButton">
+        <button class="col-md-2 btn btn-primary" (click)="addItem()">Add Item</button>
+    </div>
+    <div *ngIf="showSubmitButton" class="row submitButton">
+        <input type="submit" class="btn btn-primary col-md-3" (click)="submitInventory(item)" />
+    </div>
+</div>

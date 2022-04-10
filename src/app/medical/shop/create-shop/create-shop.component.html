@@ -1,0 +1,32 @@
+<div class="shopTitle row col-md-6 text-white bg-secondary" style="padding-top: 0px;">
+    <span>
+        <h3>Create Shop</h3>
+    </span>
+</div>
+
+<div class="shopDetails row col-md-6 border">
+    <div class="row">
+        <label class="createShopLabel">Shop Name</label>
+        <input class="form-control" [(ngModel)]="shopDetails.shopname" type="textbox" placeholder="Enter Shop Name"
+            required />
+    </div>
+    <div class="row">
+        <label class="createShopLabel">Shop Address</label>
+        <textarea [(ngModel)]="shopDetails.shopaddress" placeholder="Enter Shop Address" rows="5" cols="25"></textarea>
+    </div>
+    <div class="row">
+        <label class="createShopLabel">Shop Mobile Number</label>
+        <input type="textbox" [(ngModel)]="shopDetails.shopmobileno" placeholder="Enter Shop Mobile Number" />
+    </div>
+    <div class="row">
+        <label class="createShopLabel">Shop GST No</label>
+        <input type="textbox" [(ngModel)]="shopDetails.shopgstno" placeholder="Enter Shop GST No" />
+    </div>
+    <div class="row">
+        <label class="createShopLabel">Shop DL No</label>
+        <input type="textbox" [(ngModel)]="shopDetails.shopdlno" placeholder="Enter Shop DL No" />
+    </div>
+    <div class="row">
+        <input type="submit" class="btn btn-primary" (click)="createShop()" value="CREATE" />
+    </div>
+</div>
