@@ -16,6 +16,10 @@ export class AppComponent implements OnInit {
     },
     {
       path: 'item', description: 'Item Services'
-    }];
+    },
+    {
+      path: 'sale', description: 'Sale Services'
+    }
+  ];
   }
 }
